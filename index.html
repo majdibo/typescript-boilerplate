@@ -1,0 +1,75 @@
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>typescript-boilerplate</title><meta name="description" content="Documentation for typescript-boilerplate"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">typescript-boilerplate</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>typescript-boilerplate </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#typescript-boilerplate" id="typescript-boilerplate" style="color: inherit; text-decoration: none;">
+  <h1>TypeScript Boilerplate</h1>
+</a>
+<p><a href="https://github.com/majdibo/typescript-boilerplate/actions?query=workflow%3A%22Build+and+test%22"><img src="https://github.com/majdibo/typescript-boilerplate/workflows/Lint%20and%20test/badge.svg" alt="Build and test status"></a></p>
+<p>TypeScript project boilerplate with modern tooling, for Node.js programs, libraries and browser modules. Get started quickly and right-footed 🚀</p>
+<ul>
+<li>Includes <a href="https://www.typescriptlang.org/">TypeScript 4</a></li>
+<li>Optionally uses <a href="https://esbuild.github.io/">esbuild</a> for bundling for browsers (and Node.js)</li>
+<li>Linting with <a href="https://github.com/typescript-eslint/typescript-eslint">typescript-eslint</a> 🔍</li>
+<li>Testing with <a href="https://jestjs.io/docs/getting-started">Jest</a> 🧪 and <a href="https://www.npmjs.com/package/ts-jest">ts-jest</a></li>
+<li>Publishing to npm</li>
+<li>Continuous integration (<a href="https://docs.github.com/en/actions">GitHub Actions</a></li>
+<li>Automatic API documentation with <a href="https://typedoc.org/guides/doccomments/">TypeDoc</a> 📝</li>
+</ul>
+
+<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+  <h2>Getting Started</h2>
+</a>
+<pre><code class="language-bash"><span class="hl-0"># Clone the repository (you can also click &quot;Use this template&quot;)</span><br/><span class="hl-1">git clone https://github.com/majdibo/typescript-boilerplate.git your_project_name</span><br/><span class="hl-2">cd</span><span class="hl-1"> your_project_name</span><br/><br/><span class="hl-0"># Edit `package.json` and `tsconfig.json` to your liking</span><br/><span class="hl-1">...</span><br/><br/><span class="hl-0"># Install dependencies</span><br/><span class="hl-1">yarn install</span><br/><br/><span class="hl-0"># Now you can run various yarn commands:</span><br/><span class="hl-1">yarn cli</span><br/><span class="hl-1">yarn lint</span><br/><span class="hl-1">yarn </span><span class="hl-2">test</span><br/><span class="hl-1">yarn build-all</span><br/><span class="hl-1">yarn ts-node &lt;filename&gt;</span><br/><span class="hl-1">yarn esbuild-browser</span><br/><span class="hl-1">...</span>
+</code></pre>
+<ul>
+<li>Take a look at all the scripts in <a href="https://github.com/majdibo/typescript-boilerplate/blob/main/package.json"><code>package.json</code></a></li>
+<li>For publishing to npm, use <code>yarn publish</code> (or <code>npm publish</code>)</li>
+</ul>
+
+<a href="#esbuild" id="esbuild" style="color: inherit; text-decoration: none;">
+  <h2>esbuild</h2>
+</a>
+<p><a href="https://esbuild.github.io/">esbuild</a> is an extremely fast bundler that supports a <a href="https://esbuild.github.io/content-types/#typescript">large part of the TypeScript syntax</a>. This project uses it to bundle for browsers and Node.js.</p>
+<pre><code class="language-bash"><span class="hl-0"># Build for browsers</span><br/><span class="hl-1">yarn esbuild-browser:dev</span><br/><span class="hl-1">yarn esbuild-browser:watch</span><br/><br/><span class="hl-0"># Build the cli for node</span><br/><span class="hl-1">yarn esbuild-node:dev</span><br/><span class="hl-1">yarn esbuild-node:watch</span>
+</code></pre>
+<p>You can generate a full clean build with <code>yarn build-all</code> (which uses both <code>tsc</code> and <code>esbuild</code>).</p>
+<ul>
+<li><code>package.json</code> includes <code>scripts</code> for various esbuild commands: <a href="https://github.com/majdibo/typescript-boilerplate/blob/main/package.json#L19">see here</a></li>
+<li><code>esbuild</code> has a <code>--global-name=xyz</code> flag, to store the exports from the entry point in a global variable. See also the <a href="https://esbuild.github.io/api/#global-name">esbuild &quot;Global name&quot; docs</a>.</li>
+<li>esbuild for the browser uses the IIFE (immediately-invoked function expression) format, which executes the bundled code on load</li>
+</ul>
+
+<a href="#tests-with-jest" id="tests-with-jest" style="color: inherit; text-decoration: none;">
+  <h2>Tests with Jest</h2>
+</a>
+<p>You can write <a href="https://jestjs.io/docs/getting-started">Jest tests</a> :</p>
+<pre><code class="language-typescript"><span class="hl-2">test</span><span class="hl-1">(</span><span class="hl-3">&#39;🐔 came before 🥚&#39;</span><span class="hl-1">, () </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-2">expect</span><span class="hl-1">(</span><span class="hl-3">&quot;🐔&quot;</span><span class="hl-1"> &lt; </span><span class="hl-3">&quot;🥚&quot;</span><span class="hl-1">).</span><span class="hl-2">toBe</span><span class="hl-1">(</span><span class="hl-4">true</span><span class="hl-1">)</span><br/><span class="hl-1">  </span><span class="hl-2">expect</span><span class="hl-1">(</span><span class="hl-3">&quot;🐔&quot;</span><span class="hl-1"> &gt; </span><span class="hl-3">&quot;🥚&quot;</span><span class="hl-1">).</span><span class="hl-2">toBe</span><span class="hl-1">(</span><span class="hl-4">false</span><span class="hl-1">)</span><br/><span class="hl-1">});</span>
+</code></pre>
+<p>Run the tests with <code>yarn test</code>, no separate compile step is necessary.</p>
+<ul>
+<li>See also the <a href="https://jestjs.io/docs/getting-started">Jest documentation</a>.</li>
+<li>The tests can be automatically run in CI (GitHub Actions): <a href="https://github.com/majdibo/typescript-boilerplate/blob/main/.github/workflows/lint-and-test.yml"><code>.github/workflows/lint-and-test.yml</code></a></li>
+</ul>
+
+<a href="#documentation-published-with-ci" id="documentation-published-with-ci" style="color: inherit; text-decoration: none;">
+  <h2>Documentation, published with CI</h2>
+</a>
+<p>You can auto-generate API documentation from the TypeScript source files using <a href="https://typedoc.org/guides/doccomments/">TypeDoc</a>. The generated documentation can be published to GitHub pages through the CI.</p>
+<p>Generate the documentation, using <code>src/main.ts</code> as entrypoint (configured in package.json):</p>
+<pre><code class="language-bash"><span class="hl-1">yarn docs</span>
+</code></pre>
+<p>The resulting HTML is saved in <code>docs/</code>.</p>
+<p>You can publish the documentation through CI as <a href="https://pages.github.com/">GitHub pages</a>: See <a href="https://github.com/majdibo/typescript-boilerplate/blob/main/.github/workflows/deploy-gh-pages.yml"><code>.github/workflows/deploy-gh-pages.yml</code></a></p>
+<p>This is the documentation for this boilerplate project: <a href="https://majdibo.github.io/typescript-boilerplate/">https://majdibo.github.io/typescript-boilerplate/</a></p>
+
+<a href="#references" id="references" style="color: inherit; text-decoration: none;">
+  <h2>References</h2>
+</a>
+<ul>
+<li><a href="https://www.metachris.com/2021/03/bootstrapping-a-typescript-node.js-project/">Bootstrapping a typescript node.js project</a></li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/intro.html">TypeScript Handbook</a></li>
+<li><a href="https://www.typescriptlang.org/tsconfig">tsconfig docs</a></li>
+<li><a href="https://esbuild.github.io/">esbuild docs</a></li>
+<li><a href="https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md">typescript-eslint docs</a></li>
+<li><a href="https://jestjs.io/docs/getting-started">Jest docs</a></li>
+<li><a href="https://docs.github.com/en/actions">GitHub Actions</a></li>
+</ul>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-function"><a href="modules.html#taste" class="tsd-kind-icon">taste</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
