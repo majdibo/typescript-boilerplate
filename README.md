@@ -6,11 +6,11 @@ TypeScript project boilerplate with modern tooling, for Node.js programs, librar
 
 * Includes [TypeScript 4](https://www.typescriptlang.org/)
 * Optionally uses [esbuild](https://esbuild.github.io/) for bundling for browsers (and Node.js)
-* Linting with [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
-* Testing with [Jest](https://jestjs.io/docs/getting-started) and [ts-jest](https://www.npmjs.com/package/ts-jest)
+* Linting with [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) 🔍
+* Testing with [Jest](https://jestjs.io/docs/getting-started) 🧪 and [ts-jest](https://www.npmjs.com/package/ts-jest)
 * Publishing to npm
 * Continuous integration ([GitHub Actions](https://docs.github.com/en/actions)
-* Automatic API documentation with [TypeDoc](https://typedoc.org/guides/doccomments/)
+* Automatic API documentation with [TypeDoc](https://typedoc.org/guides/doccomments/) 📝
 
 ## Getting Started
 
@@ -40,7 +40,7 @@ yarn esbuild-browser
 
 ## esbuild
 
-[esbuild](https://esbuild.github.io/) is an extremely fast bundler that supports a [large part of the TypeScript syntax](https://esbuild.github.io/content-types/#typescript). This project uses it to bundle for browsers (and Node.js if you want).
+[esbuild](https://esbuild.github.io/) is an extremely fast bundler that supports a [large part of the TypeScript syntax](https://esbuild.github.io/content-types/#typescript). This project uses it to bundle for browsers and Node.js.
 
 ```bash
 # Build for browsers
@@ -54,7 +54,7 @@ yarn esbuild-node:watch
 
 You can generate a full clean build with `yarn build-all` (which uses both `tsc` and `esbuild`).
 
-* `package.json` includes `scripts` for various esbuild commands: [see here](https://github.com/majdibo/typescript-boilerplate/blob/main/package.json#L23)
+* `package.json` includes `scripts` for various esbuild commands: [see here](https://github.com/majdibo/typescript-boilerplate/blob/main/package.json#L19)
 * `esbuild` has a `--global-name=xyz` flag, to store the exports from the entry point in a global variable. See also the [esbuild "Global name" docs](https://esbuild.github.io/api/#global-name).
 * esbuild for the browser uses the IIFE (immediately-invoked function expression) format, which executes the bundled code on load
 
@@ -64,10 +64,9 @@ You can generate a full clean build with `yarn build-all` (which uses both `tsc`
 You can write [Jest tests](https://jestjs.io/docs/getting-started) :
 
 ```typescript
-import { greet } from './main'
-
-test('assert 1 equals 1', () => {
-  expect(1).toBe(1)
+test('🐔 came before 🥚', () => {
+  expect("🐔" < "🥚").toBe(true)
+  expect("🐔" > "🥚").toBe(false)
 });
 ```
 

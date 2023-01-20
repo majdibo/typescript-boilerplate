@@ -1,10 +1,23 @@
-export const delayMillis = (delayMs: number): Promise<void> => new Promise(resolve => setTimeout(resolve, delayMs));
+const foodMap = new Map<string, string>([
+  ["🍕", "delicious"],
+  ["🍔", "cheesy"]
+]);
+/**
+ * return a given food impression about how it tastes
+ * @param {string} food - the food that you want to know how it tastes.
+ * @returns {string} - the taste of the given food
+ */
+export const taste = async (food: string): Promise<string> => {
+  console.log('tasting...')
+  // it takes time to eat...
+  await new Promise(resolve => setTimeout(resolve, 1000))
 
-export const greet = (name: string): string => `Hello ${name}`
+  return new Promise((resolve, reject) => {
+    if (foodMap.has(food)) {
+      resolve(foodMap.get(food) as string);
+    } else {
+      reject(new Error(`${food} has no taste`));
+    }
+  });
 
-export const foo = async (): Promise<boolean> => {
-  console.log(greet('World'))
-  await delayMillis(1000)
-  console.log('done')
-  return true
 }

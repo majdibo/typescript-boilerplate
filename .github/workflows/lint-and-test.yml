@@ -8,18 +8,23 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        nodejs: [12, 14]
+        node-version: [14, 16]
 
     steps:
-    - uses: actions/checkout@v2
-
-    # https://github.com/actions/setup-node
-    - uses: actions/setup-node@v2-beta
+    - name: 🛍️ Checkout code
+      uses: actions/checkout@v3
+    - name: 🔧 Setup Node ${{ matrix.node-version}}
+      uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.nodejs }}
+        node-version: ${{ matrix.node-version}}
 
-    - run: yarn install
-    - run: yarn add -D esbuild
-    - run: yarn test
-    - run: yarn lint
-    - run: yarn build-all
+    - name: 📦 Install dependencies
+      run: yarn install
+    - name: 🔨 Add esbuild
+      run: yarn add -D esbuild
+    - name: 🧪 Test the code
+      run: yarn test
+    - name: 🔍 Lint the code
+      run: yarn lint
+    - name: 🚀 Build the code
+      run: yarn build-all

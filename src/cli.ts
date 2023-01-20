@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import { foo } from './main'
+import { taste } from './main'
 
-foo()
+taste("🍔").then(value => console.log(`🍔 is ${value}`))
+taste("🥐").then(value => console.log(`🥐 is ${value}`)).catch(reason => console.error(`🥐 ${reason}`))
